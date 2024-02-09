@@ -5,12 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform _gunPosition;
+    [SerializeField] int _bulletType = 0;
 
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            /*GameObject _bullet = PoolManager.Instance.GetPooledObjects(_gunPosition.position, _gunPosition.rotation);
+            GameObject _bullet = PoolManager.Instance.GetPooledObjects(_bulletType, _gunPosition.position, _gunPosition.rotation);
             if(_bullet != null)
             {
                 _bullet.SetActive(true);
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.LogError("Pool es demasiado pequeño");
-            }*/
+            }
         }
     }
 }
