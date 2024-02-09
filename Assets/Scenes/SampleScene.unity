@@ -183,10 +183,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff159eed420d61945883d0a65396015e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parentName: BulletPool
-  _prefab: {fileID: 3058743819874934643, guid: 391779ff5340d0a4fb9de641cfa1842f, type: 3}
-  _poolSize: 30
-  _pooledObjects: []
+  _pools:
+  - _parentName: BulletPool
+    _prefab: {fileID: 3058743819874934643, guid: 391779ff5340d0a4fb9de641cfa1842f, type: 3}
+    _poolSize: 20
+    _pooledObjects: []
+  - _parentName: GranadaPool
+    _prefab: {fileID: 3058743819874934643, guid: d483842633536e54a93cf177bcb83d85, type: 3}
+    _poolSize: 10
+    _pooledObjects: []
 --- !u!4 &176029515
 Transform:
   m_ObjectHideFlags: 0

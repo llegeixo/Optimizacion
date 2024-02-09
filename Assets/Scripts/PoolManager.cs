@@ -6,10 +6,16 @@ public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance;
 
-    [SerializeField] string _parentName;
-    [SerializeField] GameObject _prefab;
-    [SerializeField] int _poolSize;
-    [SerializeField] List<GameObject> _pooledObjects; 
+    [System.Serializable]
+    public class Pool 
+    {
+        public string _parentName;
+        public GameObject _prefab;
+        public int _poolSize;
+        public List<GameObject> _pooledObjects; 
+    }
+
+    [SerializeField] List<Pool> _pools;
 
     void Awake()
     {
@@ -23,29 +29,34 @@ public class PoolManager : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
+   void Start()
     {
-        GameObject parent = new GameObject(_parentName);
 
         GameObject obj;
 
-        for (int i = 0; i < _poolSize; i++)
+        foreach (Pool _pool in _pools)
         {
-            obj = Instantiate(_prefab);
-            obj.transform.SetParent(parent.transform);
-            obj.SetActive(false);
-            _pooledObjects.Add(obj);
+            GameObject parent = new GameObject(_pool._parentName);
+
+            for (int i = 0; i < _pool._poolSize; i++)
+            {
+                obj = Instantiate(_pool._prefab);
+                obj.transform.SetParent(parent.transform);
+                obj.SetActive(false);
+                _pool._pooledObjects.Add(obj);
+            }
         }
+
     }
 
-    public GameObject GetPooledObjects(Vector3 position, Quaternion rotation)
+    public GameObject GetPooledObjects(int _selectedPool, Vector3 position, Quaternion rotation)
     {
-        for (int i = 0; i < _poolSize; i++)
+        for (int i = 0; i < _pools[_selectedPool]._poolSize; i++)
         {
-            if(!_pooledObjects[i].activeInHierarchy)
+            if(!_pools[_selectedPool]._pooledObjects[i].activeInHierarchy)
             {
                 GameObject _objectToSpawn;
-                _objectToSpawn = _pooledObjects[i];
+                _objectToSpawn = _pools[_selectedPool]._pooledObjects[i];
                 _objectToSpawn.transform.position = position;
                 _objectToSpawn.transform.rotation = rotation;
                 return _objectToSpawn;
