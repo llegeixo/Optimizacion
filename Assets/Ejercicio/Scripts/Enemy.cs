@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    [SerializeField] float _enemySpeed = 150;
+
     void Update()
     {
-        
+        transform.position += transform.forward * _enemySpeed * Time.deltaTime;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        gameObject.SetActive(false);
+    }
+
 }

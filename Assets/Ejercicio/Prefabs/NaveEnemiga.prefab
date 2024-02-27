@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2058327641395418447}
   - component: {fileID: 1853541062883892532}
   - component: {fileID: 1988301034294313507}
+  - component: {fileID: 4818309033609248012}
   m_Layer: 0
   m_Name: NaveEnemiga
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266770328833200004}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -3.7694647, y: -316, z: 177}
   m_LocalScale: {x: 1094.0159, y: 1094.0159, z: 1094.0159}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 270, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 90}
 --- !u!33 &7325527522136184482
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0e423905abda34c9e08bc326cf71bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemySpeed: 150
 --- !u!54 &1988301034294313507
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,3 +126,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!65 &4818309033609248012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266770328833200004}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.056026313, y: 0.036146704, z: 0.020638982}
+  m_Center: {x: 0, y: -0.00807335, z: 0.005750068}
